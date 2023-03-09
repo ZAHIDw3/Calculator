@@ -2,12 +2,12 @@ import './App.css'
 
 function App() {
   return (
-    <div>
+    <div className='app'>
       <h1>Calculator</h1>
       <table>
         {/* First now*/}
         <tr>
-          <td colSpan={"4"}>RESULT</td>
+          <td colSpan={"4"} style={{border: '1px solid black', textAlign: "end"}}><h2>0</h2></td>
         </tr>
         {/* Second now*/}
         <tr>
@@ -38,7 +38,8 @@ function App() {
         </tr>
         {/* Six now*/}
         <tr>
-          <td colSpan={"2"}><button type="button" className="btn btn-primary" style={{width: "175px"}}>0</button></td>
+          <td><button type="button" className="btn btn-primary w-75">DEL</button></td>
+          <td><button type="button" className="btn btn-primary w-75">0</button></td>
           <td><button type="button" className="btn btn-primary w-75">.</button></td>
         </tr>
       </table>
