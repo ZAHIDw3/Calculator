@@ -14,6 +14,22 @@ function App() {
       setScreen(`${screen}9`)
     }
   }
+  const handleButtonClick7=()=> {
+    if(screen ==='0'){
+      setScreen(7)
+    }
+    else {
+      setScreen(`${screen}7`)
+    }
+  }
+  const handleButtonClick8=()=> {
+    if(screen ==='0'){
+      setScreen(8)
+    }
+    else {
+      setScreen(`${screen}8`)
+    }
+  }
   return (
     <div className='app'>
       <h1>Calculator</h1>
@@ -31,8 +47,8 @@ function App() {
         </tr>
         {/* Third now*/}
         <tr>
-          <td><button type="button" className={buttonsClass}>7</button></td>
-          <td><button type="button" className={buttonsClass}>8</button></td>
+          <td><button type="button" className={buttonsClass} onClick={handleButtonClick7}>7</button></td>
+          <td><button type="button" className={buttonsClass} onClick={handleButtonClick8}>8</button></td>
           <td><button type="button" className={buttonsClass} onClick={handleButtonClick}>9</button></td>
           <td rowSpan={"2"}><button type="button" className={buttonsClass} style={{height: "80px"}}>+</button></td>
         </tr>
