@@ -6,28 +6,19 @@ const buttonsClass= "btn btn-primary w-75";
 function App() {
   const [screen, setScreen] = useState('0')
 
-  const handleButtonClick=()=> {
+  const handleButtonClick=(e)=> {
+    //const handleButtonClick=(value)=>
+    //onClick={()=>handleButtonClick('4')}
+    const {value}=e.target;//si el nombre de la variable es diferen const value=e.target.value;
+    if(value ==='C'){
+      setScreen('0')
+      return;
+    }
     if(screen ==='0'){
-      setScreen(9)
+     setScreen(value)
     }
     else {
-      setScreen(`${screen}9`)
-    }
-  }
-  const handleButtonClick7=()=> {
-    if(screen ==='0'){
-      setScreen(7)
-    }
-    else {
-      setScreen(`${screen}7`)
-    }
-  }
-  const handleButtonClick8=()=> {
-    if(screen ==='0'){
-      setScreen(8)
-    }
-    else {
-      setScreen(`${screen}8`)
+      setScreen(`${screen}${value}`)
     }
   }
   return (
@@ -40,35 +31,35 @@ function App() {
         </tr>
         {/* Second now*/}
         <tr>
-          <td><button type="button" className={buttonsClass}>C</button></td>
+          <td><button type="button" className={buttonsClass} value="C" onClick={(e)=>handleButtonClick(e)}>C</button></td>
           <td class="position-relative"><button type="button" className={buttonsClass}>/</button></td>
           <td><button type="button" className={buttonsClass}>*</button></td>
           <td><button type="button" className={buttonsClass}>-</button></td>
         </tr>
         {/* Third now*/}
         <tr>
-          <td><button type="button" className={buttonsClass} onClick={handleButtonClick7}>7</button></td>
-          <td><button type="button" className={buttonsClass} onClick={handleButtonClick8}>8</button></td>
-          <td><button type="button" className={buttonsClass} onClick={handleButtonClick}>9</button></td>
+          <td><button type="button" className={buttonsClass} value="7" onClick={(e)=>handleButtonClick(e)}>7</button></td>
+          <td><button type="button" className={buttonsClass} value="8" onClick={(e)=>handleButtonClick(e)}>8</button></td>
+          <td><button type="button" className={buttonsClass} value="9" onClick={(e)=>handleButtonClick(e)}>9</button></td>
           <td rowSpan={"2"}><button type="button" className={buttonsClass} style={{height: "80px"}}>+</button></td>
         </tr>
         {/* Fourth now*/}
         <tr>
-          <td><button type="button" className={buttonsClass}>4</button></td>
-          <td><button type="button" className={buttonsClass}>5</button></td>
-          <td><button type="button" className={buttonsClass}>6</button></td>
+          <td><button type="button" className={buttonsClass} value="4" onClick={(e)=>handleButtonClick(e)}>4</button></td>
+          <td><button type="button" className={buttonsClass} value="5" onClick={(e)=>handleButtonClick(e)}>5</button></td>
+          <td><button type="button" className={buttonsClass} onClick={()=>handleButtonClick('6')}>6</button></td>
         </tr>
         {/* Fifth now*/}
         <tr>
-          <td><button type="button" className={buttonsClass}>1</button></td>
-          <td><button type="button" className={buttonsClass}>2</button></td>
-          <td><button type="button" className={buttonsClass}>3</button></td>
+          <td><button type="button" className={buttonsClass} value="1" onClick={(e)=>handleButtonClick(e)}>1</button></td>
+          <td><button type="button" className={buttonsClass} value="2" onClick={(e)=>handleButtonClick(e)}>2</button></td>
+          <td><button type="button" className={buttonsClass} value="3"onClick={(e)=>handleButtonClick(e)}>3</button></td>
           <td rowSpan={"2"}><button type="button" className={buttonsClass} style={{height: "80px"}}>=</button></td>
         </tr>
         {/* Six now*/}
         <tr>
           <td><button type="button" className={buttonsClass}>DEL</button></td>
-          <td><button type="button" className={buttonsClass}>0</button></td>
+          <td><button type="button" className={buttonsClass} value="0" onClick={(e)=>handleButtonClick(e)}>0</button></td>
           <td><button type="button" className={buttonsClass}>.</button></td>
         </tr>
       </table>
