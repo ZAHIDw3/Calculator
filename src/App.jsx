@@ -16,20 +16,24 @@ function App() {
     }
     //agregar el .
     if(value ==='.'){
-      if(screen.indexOf('.')==-1){
-        setScreen(`${screen}${value}`);
-        return;
-      }else{
-        return;
-      }
+      if(screen.indexOf('.') !==-1)return;
+      //if(screen.includes('.'))return;
     }
-    if(screen ==='0'){
+    if(screen ==='0'&& value !=='.'){
      setScreen(value)
+     return;
     }
-    else {
-      setScreen(`${screen}${value}`)
-    }
+    setScreen(`${screen}${value}`)
   }
+
+  const handleDelButtonClick=()=> {
+    if(screen.length ===1){
+      setScreen('0')
+      return;
+    }
+    setScreen(screen.slice(0,-1));
+  }
+
   return (
     <div className='app'>
       <h1>Calculator</h1>
@@ -67,7 +71,7 @@ function App() {
         </tr>
         {/* Six now*/}
         <tr>
-          <td><button type="button" className={buttonsClass}>DEL</button></td>
+          <td><button type="button" className={buttonsClass} onClick={handleDelButtonClick}>DEL</button></td>
           <td><button type="button" className={buttonsClass} value="0" onClick={(e)=>handleButtonClick(e)}>0</button></td>
           <td><button type="button" className={buttonsClass} value="." onClick={(e)=>handleButtonClick(e)}>.</button></td>
         </tr>
