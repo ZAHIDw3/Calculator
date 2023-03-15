@@ -14,6 +14,15 @@ function App() {
       setScreen('0')
       return;
     }
+    //agregar el .
+    if(value ==='.'){
+      if(screen.indexOf('.')==-1){
+        setScreen(`${screen}${value}`);
+        return;
+      }else{
+        return;
+      }
+    }
     if(screen ==='0'){
      setScreen(value)
     }
@@ -47,7 +56,7 @@ function App() {
         <tr>
           <td><button type="button" className={buttonsClass} value="4" onClick={(e)=>handleButtonClick(e)}>4</button></td>
           <td><button type="button" className={buttonsClass} value="5" onClick={(e)=>handleButtonClick(e)}>5</button></td>
-          <td><button type="button" className={buttonsClass} onClick={()=>handleButtonClick('6')}>6</button></td>
+          <td><button type="button" className={buttonsClass} value="6" onClick={(e)=>handleButtonClick(e)}>6</button></td>
         </tr>
         {/* Fifth now*/}
         <tr>
@@ -60,7 +69,7 @@ function App() {
         <tr>
           <td><button type="button" className={buttonsClass}>DEL</button></td>
           <td><button type="button" className={buttonsClass} value="0" onClick={(e)=>handleButtonClick(e)}>0</button></td>
-          <td><button type="button" className={buttonsClass}>.</button></td>
+          <td><button type="button" className={buttonsClass} value="." onClick={(e)=>handleButtonClick(e)}>.</button></td>
         </tr>
       </table>
     </div>
