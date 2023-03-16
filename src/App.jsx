@@ -4,6 +4,8 @@ import './App.css'
 const buttonsClass= "btn btn-primary w-75";
 
 function App() {
+  const [number1, setNumber1] = useState('')
+  const [clearScreen, setClearScreen] = useState(false)
   const [screen, setScreen] = useState('0')
 
   const handleButtonClick=(e)=> {
@@ -19,6 +21,14 @@ function App() {
       if(screen.indexOf('.') !==-1)return;
       //if(screen.includes('.'))return;
     }
+    //!==================================
+    console.log({number1})
+    if(clearScreen){
+      console.log('Cambiar screen');
+      setScreen(value);
+      setClearScreen(false);
+      return;
+    }
     if(screen ==='0'&& value !=='.'){
      setScreen(value)
      return;
@@ -32,6 +42,19 @@ function App() {
       return;
     }
     setScreen(screen.slice(0,-1));
+  }
+  const handleOperationButtonClick=(e)=> {
+    const operator= e.target.value;
+    switch(operator){
+      case '+':
+        setNumber1(screen);
+        console.log("suma")
+        break;
+
+      default:
+        break;
+    }
+    setClearScreen(true)
   }
 
   return (
@@ -54,7 +77,7 @@ function App() {
           <td><button type="button" className={buttonsClass} value="7" onClick={(e)=>handleButtonClick(e)}>7</button></td>
           <td><button type="button" className={buttonsClass} value="8" onClick={(e)=>handleButtonClick(e)}>8</button></td>
           <td><button type="button" className={buttonsClass} value="9" onClick={(e)=>handleButtonClick(e)}>9</button></td>
-          <td rowSpan={"2"}><button type="button" className={buttonsClass} style={{height: "80px"}}>+</button></td>
+          <td rowSpan={"2"}><button type="button" className={buttonsClass} style={{height: "80px"}} value="+" onClick={(e)=>handleOperationButtonClick(e)}>+</button></td>
         </tr>
         {/* Fourth now*/}
         <tr>
