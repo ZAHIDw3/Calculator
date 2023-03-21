@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css'
+import Button from './components/Button';
 
 const buttonsClass = "btn btn-primary w-75";
 
@@ -92,7 +93,8 @@ function App() {
         {/* Third now*/}
         <tr>
           <td><button type="button" className={buttonsClass} value="7" onClick={(e) => handleButtonClick(e)}>7</button></td>
-          <td><button type="button" className={buttonsClass} value="8" onClick={(e) => handleButtonClick(e)}>8</button></td>
+          <td>{/*<button type="button" className={buttonsClass} value="8" onClick={(e) => handleButtonClick(e)}>8</button>*/} 
+            <Button style={buttonsClass} handleClick={handleButtonClick} /></td>
           <td><button type="button" className={buttonsClass} value="9" onClick={(e) => handleButtonClick(e)}>9</button></td>
           <td rowSpan={"2"}><button
             type="button" className={buttonsClass}
