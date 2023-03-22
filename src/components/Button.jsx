@@ -1,6 +1,17 @@
-const Button= (props) =>{    
+const Button= ({
+    classes,
+    value,
+    handleClick,
+    style
+}) =>{    
     return(
-        <td><button type="button" className={props.style} value="8" onClick={(e) => props.handleClick(e)}>8</button></td>
+        <button 
+        type="button" 
+        className={classes} 
+        value={value} 
+        onClick={(e) => handleClick(e)} 
+        style={style}
+        >{value}</button>
     )
 }
 
